@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Matrícula</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="imagem-canto-esquerdo">
+        <img src="formulario.png" alt="Formulário">
+        <form id="matricula-form" role="form" aria-labelledby="matricula-title">
+            <center> <h1 id="matricula-title">Formulário de Matrícula </h1></center>
+            <div> <label for="nome"> Seu nome completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite aqui." required aria-required="true">
+            </div>
+            <div> <label for="telefone"> Seu telefone:</label>
+                <input type="tel" id="telefone" name="telefone"  placeholder="Digite aqui." pattern="[0-9]{8}" title="Por favor, insira apenas números (exatamente 8 dígitos)" maxlength="8" required aria-required="true">
+            </div>
+            <div> 
+                <label for="curso"> Curso:</label>
+                <select id="curso" name="curso" required aria-required="true">
+                    <option value=""> Clique aqui e selecione o curso: </option>
+                    <option value="1">Introdução à Informática</option>
+                    <option value="2">Programação em Python</option>
+                    <option value="3"> Web Development </option>
+                </select>
+            </div>
+          <center>  <button type="submit" formaction="enviado.html">Enviar Matrícula</button></center>
+        </form>
+    </div>
+  
+    <div class="imagem-canto-direito">
+        <img src="pessoas.png" alt="Pessoas">
+    </div>
+       
+       
+    <script>
+        document.getElementById('nome').addEventListener('input', function() {
+            var nomeInput = this.value.trim();
+            if (nomeInput.charAt(0) === nomeInput.charAt(0).toLowerCase()) {
+                this.value = nomeInput.charAt(0).toUpperCase() + nomeInput.slice(1);
+            }
+        });
+        document.getElementById('telefone').addEventListener('input', function() {
+            var telefoneInput = this.value.trim();
+            telefoneInput = telefoneInput.replace(/\D/g, '');
+            if (telefoneInput.length > 8) {
+                telefoneInput = telefoneInput.slice(0, 8);
+            }
+            this.value = telefoneInput;
+        });
+    </script>
+</body>
+</html>
+```
